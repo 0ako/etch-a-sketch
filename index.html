@@ -6,10 +6,17 @@
     </head>
     <body>
         <header>
-            <h1>it's time to draw!</h1>
+            <h1>Etch-a-sketch</h1>
         </header>
         <div>
-            <div class='container'></div>
+            <button id="resizeBtn" onclick="resize()">Change Grid Size</button>
+            <div id="container" class='container'>
+                // number of divs must be adjustable by JS to equal CSS grid-template-columns and grid-template-rows
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+            </div>
         </div>
         <script src='script.js'></script>
     </body>
