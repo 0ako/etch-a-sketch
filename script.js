@@ -1,4 +1,6 @@
 let size = 0;
+let divs;
+const container = document.querySelector("#container");
 
 // HTML, CSS: initialize grid at 2*2 of white boxes (subject to change)
 // HTML: Create divs in html
@@ -20,8 +22,15 @@ function resize() {
     size = prompt("Enter grid: ");
     size = Number(size);
     if (size > 0 && size < 65) {
-        document.getElementById("container").style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-        // document.querySelector(".container").style.gridTemplateColumns = "repeat(5, 1fr)"
+        document.querySelector(".container").style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        document.querySelector(".container").style.gridTemplateRows = `repeat(${size}, 1fr)`;
+        // number of divs must be adjustable by JS to equal CSS grid-template-columns and grid-template-row
+        // use for loop and createElement to create divs by loop counter = size
+        for (let i = 0; i <= (size * size); i++) {
+            divs = document.createElement('div');
+            container.appendChild(divs); // CONTINUE HERE the key is in this function. check the DOM tree
+        }
+        
     } else {
         resize();
     }

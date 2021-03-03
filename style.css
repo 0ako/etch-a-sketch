@@ -7,7 +7,7 @@
     /* use auto-fit? */
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
-    background: rgb(0, 0, 0);
+    background: rgb(110, 110, 110);
 }
 
 .container .item {
