@@ -1,15 +1,17 @@
 .container{
     text-align: center;
     display: grid;
-    width: 500px;
-    height: 500px;
+    width: 560px;
+    height: 560px;
     grid-template-columns: repeat(3, 1fr); 
-    /* use auto-fit? */
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10px;
-    background: rgb(110, 110, 110);
+    grid-gap: 1px;
+    background: rgb(0, 0, 0);
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
 }
 
-.container .item {
-    background-color: rgb(243, 238, 232);
+.container .divs {
+    background-color: rgb(255, 255, 255);
 }

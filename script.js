@@ -2,7 +2,7 @@ let size = 0;
 let divs;
 const container = document.querySelector("#container");
 
-// HTML, CSS: initialize grid at 2*2 of white boxes (subject to change)
+// HTML, CSS: initialize grid at of empty boxes
 // HTML: Create divs in html
 // HTML, JS: New grids should be generated in the same total space as before (e.g. 500px wide)
 
@@ -15,26 +15,35 @@ const container = document.querySelector("#container");
 // HTML: Add a resetBtn that clears the current grid
 // JS: when resetBtn clicked, remove all square's classes, leaving white
 
-// HTML, JS: Add a resizeBtn that when clicked, prompts user to enter int between 1-64 (size of sides)
+// HTML, JS: Add a resizeBtn that when clicked, prompts user to enter int between 1-20 (size of sides)
 //     if user enters value within range then change size variable and draw new grid
 //     else it's not an int OR not in range, reprompt.
+
 function resize() {
-    size = prompt("Enter grid: ");
+    size = prompt("Enter grid size (1-64): ");
     size = Number(size);
-    if (size > 0 && size < 65) {
+    
+    // delete all existing divs within container when function runs
+    while (container.lastElementChild) {
+        container.removeChild(container.lastElementChild);
+    }
+
+    if (size > 0 && size <= 64) {
         document.querySelector(".container").style.gridTemplateColumns = `repeat(${size}, 1fr)`;
         document.querySelector(".container").style.gridTemplateRows = `repeat(${size}, 1fr)`;
-        // number of divs must be adjustable by JS to equal CSS grid-template-columns and grid-template-row
-        // use for loop and createElement to create divs by loop counter = size
-        for (let i = 0; i <= (size * size); i++) {
+        console.log(document.querySelector(".container").style.gridTemplateColumns = `repeat(${size}, 1fr)`)
+        console.log(document.querySelector(".container").style.gridTemplateRows = `repeat(${size}, 1fr)`)
+        // use for loop and createElement to create divs by loop counter in proportion to size
+        
+        for (let i = 0; i <= ((size)**2 -1); i++) { 
             divs = document.createElement('div');
-            container.appendChild(divs); // CONTINUE HERE the key is in this function. check the DOM tree
+            divs.classList.add('divs');
+            container.appendChild(divs);
         }
         
     } else {
-        resize();
-    }
-    ;
+        return;
+    };
 }
 // HTML: Add a colorBtn that changes color mode and makes JS function run when clicked
 // JS: when colorBtn clicked, run function to change color mode from RGB to BW
@@ -43,6 +52,7 @@ function resize() {
 // Notes:
 // JS: Add console.log statements to debug
 // README: Record what and how I overcame tough challenges in real time
+
 
 
 
